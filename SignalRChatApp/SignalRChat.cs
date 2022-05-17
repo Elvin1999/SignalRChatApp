@@ -8,5 +8,14 @@ namespace SignalRChatApp
         {
             await Clients.All.SendAsync("ReceiveMessage",user, message);
         }
+
+
+
+        public override async Task OnConnectedAsync()
+        {
+            string info = " connected successfully";
+            await Clients.Others.SendAsync("Connect",info);
+        }
+
     }
 }
